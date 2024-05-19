@@ -4,16 +4,9 @@ if (file_exists('TelegramErrorLogger.php')) {
     require_once 'TelegramErrorLogger.php';
 }
 
-/**
- * Telegram Bot Class.
- *
- * @author Gabriele Grillo <gabry.grillo@alice.it>
- */
 class Telegram
 {
-    /**
-     * Constant for type Inline Query.
-     */
+
     const INLINE_QUERY = 'inline_query';
     /**
      * Constant for type Callback Query.
@@ -93,13 +86,6 @@ class Telegram
 
     /// Class constructor
 
-    /**
-     * Create a Telegram instance from the bot token
-     * \param $bot_token the bot token
-     * \param $log_errors enable or disable the logging
-     * \param $proxy array with the proxy configuration (url, port, type, auth)
-     * \return an instance of the class.
-     */
     public function __construct($bot_token, $log_errors = true, array $proxy = [])
     {
         $this->bot_token = $bot_token;
