@@ -1,10 +1,12 @@
 <?php
 
 include 'Telegram.php';
+require_once "telegramtoken.php";
 
-$telegram = new Telegram("6387497149:AAHBl_3ZZvF00q8zNgDCuQFQ0YvXGCirync");
 $chat_id = $telegram->ChatID();
 $text = $telegram->Text();
+$first_name = $telegram->FirstName();
+$last_name = $telegram->LastName();
 if($text == "/start"){
     $option = array(
 
@@ -15,7 +17,7 @@ if($text == "/start"){
         array($telegram->buildKeyboardButton("Video"), $telegram->buildKeyboardButton("👨🏻‍💻 Tuzuvchi")),
     );
     $keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize = true);
-    $content = array('chat_id' => $chat_id, 'text' => "Salom, botimizga xush kelibsiz!");
+    $content = array('chat_id' => $chat_id, 'text' => "Salom, $first_name $last_name , botimizga xush kelibsiz!");
     $telegram->sendMessage($content);
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Bizdan sizga qanday xizmat kerak!");
     $telegram->sendMessage($content);
